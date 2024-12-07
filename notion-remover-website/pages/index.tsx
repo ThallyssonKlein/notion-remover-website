@@ -22,7 +22,7 @@ export default function Home() {
 
             {/* Título e descrição */}
             <div className={styles.textSection}>
-              <h1>Connect, filter and schedule actions in your Notion database easily and efficiently.</h1>
+              <h1><b>Connect, filter and schedule actions in your Notion <span className="blue">database</span> easily and <span className="blue">efficiently</span>.</b></h1>
             </div>
           </div>
 
