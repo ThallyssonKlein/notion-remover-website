@@ -31,8 +31,8 @@ export default function Home() {
             <Image
               src="/screenshot.jpg" // Adicione a screenshot no diretório public/
               alt="Screenshot"
-              width={500}
-              height={300}
+              width={355}
+              height={483}
             />
           </div>
         </div>
