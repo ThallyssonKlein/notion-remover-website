@@ -37,6 +37,15 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* Nova seção para o formulário de email */}
+      <div className={styles.emailSection}>
+        <label htmlFor="email">Enter your email:</label>
+        <div className={styles.emailForm}>
+          <input type="email" id="email" name="email" className={styles.emailInput} />
+          <button type="submit" className={styles.submitButton}>Submit</button>
+        </div>
+      </div>
     </div>
   );
 }
