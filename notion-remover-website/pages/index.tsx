@@ -40,7 +40,7 @@ export default function Home() {
 
       {/* Nova seção para o formulário de email */}
       <div className={styles.emailSection}>
-        <label htmlFor="email">Enter your email:</label>
+        <label htmlFor="email">Request access:</label>
         <div className={styles.emailForm}>
           <input type="email" id="email" name="email" className={styles.emailInput} />
           <button type="submit" className={styles.submitButton}>Submit</button>
