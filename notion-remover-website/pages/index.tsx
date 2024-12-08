@@ -1,8 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image';
-import styles from './index.module.css'; // altere para CSS Modules
+import styles from './index.module.css';
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+
+  async function addDocument(data) {
+    const response = await fetch('/api/addDocument', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+  
+    const result = await response.json();
+    return result;
+  };
+
+  async function handleSendEmail() {
+    try {
+      await addDocument({ email });
+      alert("Email added successfully!");
+    } catch (err) {
+      alert("Error adding email.");
+      console.error("Error adding document: ", err);
+    }
+  }
+
   return (
     <div className={styles.container}>
       {/* Seção principal */}
@@ -42,8 +67,16 @@ export default function Home() {
       <div className={styles.emailSection}>
         <label htmlFor="email">Request access:</label>
         <div className={styles.emailForm}>
-          <input type="email" id="email" name="email" className={styles.emailInput} />
-          <button type="submit" className={styles.submitButton}>Submit</button>
+          <input type="email" 
+                 id="email"
+                 name="email"
+                 className={styles.emailInput}
+                 value={email}
+                 onChange={(e) => setEmail(e.target.value)}
+            />
+          <button type="submit"
+                  className={styles.submitButton}
+                  onClick={handleSendEmail}>Submit</button>
         </div>
       </div>
     </div>
