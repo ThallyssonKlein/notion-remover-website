@@ -127,4 +127,8 @@
     text-align: center;
     margin-top: 1rem; /* Adiciona margem superior */
   }
+
+  .container {
+    height: 100%;
+  }
 }
