@@ -37,9 +37,12 @@
   flex-shrink: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 .textSection {
   flex-grow: 1;
   text-align: left;
+  font-family: 'Inter', sans-serif;
 }
 
 .textSection h1 {
@@ -57,6 +60,10 @@
 
 .blue {
   color: blue;
+}
+
+.emailLabel {
+  font-family: 'Inter', sans-serif;
 }
 
 .emailSection {

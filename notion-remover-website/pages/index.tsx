@@ -45,13 +45,12 @@ export default function Home() {
               />
             </div>
 
-            {/* Título e descrição */}
             <div className={styles.textSection}>
-              <h1><b>Connect, filter and schedule actions in your Notion <span className="blue">database</span> easily and <span className="blue">efficiently</span>.</b></h1>
+              <h1><b>Connect, filter and schedule actions in your Notion <span className={styles.blue}>database</span> easily and <span className={styles.blue}>efficiently</span>.</b></h1>
             </div>
 
             <div className={styles.emailSection}>
-          <label htmlFor="email">Request access:</label>
+          <label htmlFor="email" className={styles.emailLabel}>Request access:</label>
           <div className={styles.emailForm}>
                 <input type="email" 
                       id="email"
