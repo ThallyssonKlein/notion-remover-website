@@ -49,6 +49,22 @@ export default function Home() {
             <div className={styles.textSection}>
               <h1><b>Connect, filter and schedule actions in your Notion <span className="blue">database</span> easily and <span className="blue">efficiently</span>.</b></h1>
             </div>
+
+            <div className={styles.emailSection}>
+          <label htmlFor="email">Request access:</label>
+          <div className={styles.emailForm}>
+                <input type="email" 
+                      id="email"
+                      name="email"
+                      className={styles.emailInput}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                  />
+                <button type="submit"
+                        className={styles.submitButton}
+                        onClick={handleSendEmail}>Submit</button>
+              </div>
+            </div>
           </div>
 
           {/* Imagem da captura de tela */}
@@ -60,23 +76,6 @@ export default function Home() {
               height={483}
             />
           </div>
-        </div>
-      </div>
-
-      {/* Nova seção para o formulário de email */}
-      <div className={styles.emailSection}>
-        <label htmlFor="email">Request access:</label>
-        <div className={styles.emailForm}>
-          <input type="email" 
-                 id="email"
-                 name="email"
-                 className={styles.emailInput}
-                 value={email}
-                 onChange={(e) => setEmail(e.target.value)}
-            />
-          <button type="submit"
-                  className={styles.submitButton}
-                  onClick={handleSendEmail}>Submit</button>
         </div>
       </div>
     </div>
