@@ -46,7 +46,7 @@
 }
 
 .textSection h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   line-height: 1.5;
   color: #333;
 }
@@ -67,7 +67,7 @@
 }
 
 .emailSection {
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -114,7 +114,8 @@
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
-    padding-top: 2rem; /* Adiciona padding superior */
+    padding-top: 2rem;
+    /* Adiciona padding superior */
   }
 
   .logoTitleAndScreenshot {
@@ -123,16 +124,20 @@
   }
 
   .logoAndTitle {
-    margin-top: 2rem; /* Adiciona mais margem superior */
+    margin-top: 2rem;
+    /* Adiciona mais margem superior */
   }
 
   .logo {
-    padding-top: 1rem; /* Adiciona padding superior à logo */
+    padding-top: 1rem;
+    align-self: center;
+    /* Adiciona padding superior à logo */
   }
 
   .textSection {
     text-align: center;
-    margin-top: 1rem; /* Adiciona margem superior */
+    margin-top: 1rem;
+    /* Adiciona margem superior */
   }
 
   .container {
