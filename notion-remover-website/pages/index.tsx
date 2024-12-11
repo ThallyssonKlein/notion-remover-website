@@ -1,9 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image';
 import styles from './index.module.css';
+import ReactGA from 'react-ga4';
 
 export default function Home() {
   const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    ReactGA.event({
+      category: 'User Interaction',
+      action: 'Page Load',
+      label: 'User accessed the home page',
+    });
+  }, []);
 
   async function addDocument(data) {
     const response = await fetch('/api/addDocument', {
@@ -20,6 +29,21 @@ export default function Home() {
 
   async function handleSendEmail() {
     try {
+      if (!email) {
+        ReactGA.event({
+          category: 'Email Submission',
+          action: 'Submit Attempt Without Email',
+          label: 'User tried to submit without email',
+        });
+      } else {
+        ReactGA.event({
+          category: 'Email Submission',
+          action: 'Submit Email',
+          label: 'User submitted email',
+          value: 1, // Opção de valor se for relevante
+        });
+      }
+
       await addDocument({ email });
       alert("Email added successfully!");
     } catch (err) {
@@ -46,7 +70,7 @@ export default function Home() {
             </div>
 
             <div className={styles.textSection}>
-              <h1><b>Connect, filter and schedule actions in your Notion <span className={styles.blue}>database</span> easily and <span className={styles.blue}>efficiently</span>.</b></h1>
+              <h1><b>Connect, filter and schedule delete of items in your Notion <span className={styles.blue}>database</span> easily and <span className={styles.blue}>efficiently</span>.</b></h1>
             </div>
 
             <div className={styles.emailSection}>
@@ -61,7 +85,7 @@ export default function Home() {
                   />
                 <button type="submit"
                         className={styles.submitButton}
-                        onClick={handleSendEmail}>Submit</button>
+                        onClick={handleSendEmail}>Request Beta Access</button>
               </div>
             </div>
           </div>
