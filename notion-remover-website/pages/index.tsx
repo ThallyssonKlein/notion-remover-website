@@ -3,15 +3,15 @@ import Image from 'next/image';
 import styles from './index.module.css';
 import ReactGA from 'react-ga4';
 
+const MEASUREMENT_ID = 'G-M5KD1YEQKX';
+
 export default function Home() {
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    ReactGA.event({
-      category: 'User Interaction',
-      action: 'Page Load',
-      label: 'User accessed the home page',
-    });
+    ReactGA.initialize(MEASUREMENT_ID);
+    ReactGA.set({ debug_mode: true });
+    ReactGA.send({ hitType: 'event', category: 'Page Load', action: 'Load Home Page', label: 'Home Page loaded', value: 0 });
   }, []);
 
   async function addDocument(data) {
@@ -30,17 +30,20 @@ export default function Home() {
   async function handleSendEmail() {
     try {
       if (!email) {
-        ReactGA.event({
+        ReactGA.send({
+          hitType: 'event',
           category: 'Email Submission',
-          action: 'Submit Attempt Without Email',
-          label: 'User tried to submit without email',
+          action: 'Submit Email',
+          label: 'User did not submit email',
+          value: 0
         });
       } else {
-        ReactGA.event({
+        ReactGA.send({
+          hitType: 'event',
           category: 'Email Submission',
           action: 'Submit Email',
           label: 'User submitted email',
-          value: 1, // Opção de valor se for relevante
+          value: 1
         });
       }
 
