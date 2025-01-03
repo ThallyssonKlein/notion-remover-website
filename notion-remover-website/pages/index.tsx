@@ -9,9 +9,13 @@ export default function Home() {
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    ReactGA.initialize(MEASUREMENT_ID);
-    ReactGA.set({ debug_mode: true });
-    ReactGA.send({ hitType: 'event', category: 'Page Load', action: 'Load Home Page', label: 'Home Page loaded', value: 0 });
+    ReactGA.initialize(MEASUREMENT_ID, { });    
+    ReactGA.gtag('event', 'page_load', {
+      category: 'Page Load',
+      action: 'Load Home Page',
+      label: 'Home Page loaded',
+      value: 0,
+    });    
   }, []);
 
   async function addDocument(data) {
@@ -30,20 +34,18 @@ export default function Home() {
   async function handleSendEmail() {
     try {
       if (!email) {
-        ReactGA.send({
-          hitType: 'event',
+        ReactGA.gtag('event', 'email_submission', {
           category: 'Email Submission',
           action: 'Submit Email',
           label: 'User did not submit email',
-          value: 0
-        });
+          value: 0,
+        }); 
       } else {
-        ReactGA.send({
-          hitType: 'event',
+        ReactGA.gtag('event', 'email_submission', {
           category: 'Email Submission',
           action: 'Submit Email',
           label: 'User submitted email',
-          value: 1
+          value: 1,
         });
       }
 
