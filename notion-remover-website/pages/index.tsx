@@ -7,6 +7,7 @@ const MEASUREMENT_ID = 'G-M5KD1YEQKX';
 
 export default function Home() {
   const [email, setEmail] = useState("");
+  const [disabledButton, setDisabledButton] = useState(false);
 
   useEffect(() => {
     ReactGA.initialize(MEASUREMENT_ID, { });    
@@ -33,6 +34,7 @@ export default function Home() {
 
   async function handleSendEmail() {
     try {
+      setDisabledButton(true);
       if (!email) {
         ReactGA.gtag('event', 'email_submission', {
           category: 'Email Submission',
@@ -51,6 +53,8 @@ export default function Home() {
 
       await addDocument({ email });
       alert("Email added successfully!");
+      setDisabledButton(false);
+      setEmail("");
     } catch (err) {
       alert("Error adding email.");
       console.error("Error adding document: ", err);
@@ -90,6 +94,7 @@ export default function Home() {
                   />
                 <button type="submit"
                         className={styles.submitButton}
+                        disabled={disabledButton}
                         onClick={handleSendEmail}>Request Beta Access</button>
               </div>
             </div>
