@@ -6,6 +6,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="icon" href="/notion-logo.png" />
+          <title>Notion Remover</title>
         </Head>
         <body>
           <Main />
